@@ -13,8 +13,34 @@ This website allows you to :
    - Light theme / Dark theme.
 
 Getting Started:
-   - Clone the repository to your local machine.
-   - Navigate to the project directory.
-   - Install dependencies.
-   - Run the development server.
-   - Open your browser and go to http://localhost:3000 to view the Useless and Weird Inventions website locally.
+   - Clone the Repository:   git clone https://github.com/your-username/UselessAndWeirdInventions.git
+   - Navigate to the Project Directory:   cd UselessAndWeirdInventions
+   - Install Dependencies:   npm install
+   - Run the Project:   npm start
+   - The project should now be running locally. 
+   - Open your browser and visit http://localhost:3000 to explore the world of useless inventions.
+
+Contributing: 
+   Feel free to contribute to the hilarity! If
+      you have your own absurd inventions to add or want to enhance the project, follow these steps:
+   - Fork the Repository:   Click on the "Fork" button at the top right of the repository page.
+   - Clone Your Fork:   git clone https://github.com/your-username/UselessAndWeirdInventions.git
+   - Create a New Branch:   git checkout -b feature/new-feature
+   - Make Changes and Commit:   Make your changes and commit them, then git add .
+      git commit -m "Add description of your changes"
+   - Push Changes to Your Fork:   git push origin feature/new-feature
+   - Create a Pull Request:
+   Go to the original repository and click on "New Pull Request."
+   Provide a clear description of your changes and submit the pull request.
+Now you're part of the madness! Your changes will be reviewed and, if accepted, merged into the project.
+
+Issue Templates:
+   - If you encounter a bug or have a feature request, please use our issue templates. This helps in providing the necessary information to address the issue efficiently.
+
+
+Pull Request (PR) Guidelines:
+   - Ensure your PR addresses a specific issue. If there isn't one, create an issue first.
+   - Provide a clear and concise description of the changes made in your PR.
+   - Test your changes thoroughly to avoid introducing new bugs.
+   - Be responsive to comments and feedback during the review process.
+
