@@ -1,10 +1,10 @@
 {
   "name": "mod1-asap",
   "version": "1.0.0",
-  "description": "## Useless and Weird Inventions",
+  "description": "A collection of useless and weird inventions showcased for entertainment and amusement.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"No tests specified\""
   },
   "author": "",
   "license": "ISC"
