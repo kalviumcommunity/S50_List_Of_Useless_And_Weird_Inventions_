@@ -11,3 +11,10 @@ This website allows you to :
    - Post and Delete Inventions into the list.
    - View other's Post.
    - Light theme / Dark theme.
+
+Getting Started:
+   - Clone the repository to your local machine.
+   - Navigate to the project directory.
+   - Install dependencies.
+   - Run the development server.
+   - Open your browser and go to http://localhost:3000 to view the Useless and Weird Inventions website locally.
