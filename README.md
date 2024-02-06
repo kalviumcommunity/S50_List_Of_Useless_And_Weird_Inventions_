@@ -1,3 +1,1 @@
-# S50_List_of_Useless_and_Weird_Inventions
-
-changed
+# S50_List_Of_Useless_And_Weird_Inventions_
