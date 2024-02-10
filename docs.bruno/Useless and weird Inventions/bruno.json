@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Useless and weird Inventions",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
