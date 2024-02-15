@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router(); 
-const userModel = require('../Schema/UserModel');
+const PostModel = require('../Schema/PostModel');
 
 //Get request
 
-router.get("/users", async (req, res) => {
+router.get("/posts", async (req, res) => {
     try {
-        const data = await userModel.find();
+        const data = await PostModel.find();
         res.json(data);
     } catch (error) {
         console.log(error); 

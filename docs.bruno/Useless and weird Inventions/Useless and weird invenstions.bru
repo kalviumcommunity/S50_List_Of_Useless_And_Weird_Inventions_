@@ -4,8 +4,29 @@ meta {
   seq: 1
 }
 
-get {
-  url: https://useless-and-weird-inventions.onrender.com/ping
-  body: none
+post {
+  url: http://localhost:3000/posts
+    "InventionIDNumber": "123456",
+    "Title": "Amazing Invention",
+    "Inventor": "John Doe",
+    "InventedYear": "2023-01-01",
+    "Users": 1000,
+    "QuirkinessLevel": "High",
+    "Username": "johndoe123"
+}
+  body: json
   auth: none
+}
+
+body:json {
+  [{
+      "InventionIDNumber": "123456",
+      "Title": "Amazing Invention",
+      "Inventor": "John Doe",
+      "InventedYear": "2023-01-01",
+      "Users": 1000,
+      "QuirkinessLevel": "High",
+      "Username": "johndoe123"
+  }
+  ]
 }

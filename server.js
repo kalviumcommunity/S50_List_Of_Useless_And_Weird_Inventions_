@@ -2,7 +2,9 @@ const express = require('express');
 const app = express();
 const connectDB = require('./config/connect');
 const port = 3000; 
-const router = require('./Routes/user');
+const userroute = require('./Routes/user');
+const postroute = require('./Routes/Post');
+
 
 connectDB();
 
@@ -12,7 +14,9 @@ app.get('/ping', (req, res) => {
 
 app.use(express.json());
 
-app.use("/", router);
+app.use("/", userroute);
+app.use("/", postroute);
+
 
 app.listen(port, () => {
     console.log(`🚀 Server running on PORT: ${port}`);
