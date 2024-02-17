@@ -44,4 +44,4 @@ Pull Request (PR) Guidelines:
    - Test your changes thoroughly to avoid introducing new bugs.
    - Be responsive to comments and feedback during the review process.
 
-My website link :-   https://useless-and-weird-inventions.onrender.com/ping
+My website link :-   https://uselessandweirdinventions.pages.dev/
