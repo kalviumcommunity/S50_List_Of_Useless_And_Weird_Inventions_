@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Inventions() {
   return (
@@ -11,7 +12,7 @@ function Inventions() {
         </div>
         <p className="text-lg text-gray-700 text-center mb-4">From self-stirring mugs to portable pet rocks, we've got it all! Take a journey into the bizarre and discover inventions you never knew you didn't need.</p>
         <div className="flex justify-center items-center">
-          <button className="bg-yellow-600 text-white px-8 py-4 rounded-full shadow-lg hover:bg-yellow-700 duration-300 hover:scale-110">Get Started</button>
+          <Link to='/signup'><button className="bg-yellow-600 text-white px-8 py-4 rounded-full shadow-lg hover:bg-yellow-700 duration-300 hover:scale-110">Get Started</button></Link>
         </div>
       </div>
       <div className="absolute ml-20 top-0 left-0 flex flex-col justify-center items-center max-w-64 h-full px-4">

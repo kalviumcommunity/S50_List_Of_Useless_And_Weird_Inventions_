@@ -1,8 +1,9 @@
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 function App() {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -13,6 +14,7 @@ function App() {
   const onSubmit = (data) => {
     console.log(data);
     setSub(true);
+    navigate('/Home');
   };
 
   const password = watch('password',' ');
@@ -32,7 +34,6 @@ function App() {
           {sub && !Object.keys(errors).length && (
             <>
               <h2 className="text-green-600 text-2xl font-bold">Registration Successful!</h2>
-              <h1 className='mb-5 text-blue-700 font-semibold'>Click here to proceed!</h1>
             </>
           )}
 
@@ -84,7 +85,7 @@ function App() {
           <input
             {...register('password', {
               required: 'Password is required',
-              minLength: { value: 10, message: 'Minimum length is 10 characters' },
+              minLength: { value: 4, message: 'Minimum length is 4 characters' },
               pattern: {
                 value: /^(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-])/,
                 message: 'Password must contain at least one special character',
@@ -93,7 +94,7 @@ function App() {
             id="password"
             type="password"
             className="w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-500"
-            placeholder="Eqnter your Password"
+            placeholder="Enter your Password"
           />
           {errors.password && (
             <span className="text-red-600 text-sm">{errors.password.message}</span>
@@ -108,7 +109,7 @@ function App() {
             {...register('repeatPassword', {
               required: 'Repeat Password is required',
               validate: value => value === password || "Password doesn't match",
-              minLength: { value: 10, message: 'Minimum length is 10 characters' },
+              minLength: { value: 4, message: 'Minimum length is 4 characters' },
               pattern: {
                 value: /^(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-])/,
                 message: 'Repeat your Password',
