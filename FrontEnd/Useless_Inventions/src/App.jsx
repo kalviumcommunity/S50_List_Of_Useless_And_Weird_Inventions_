@@ -1,12 +1,14 @@
 import React from 'react'
 import Inventions from './Components/Inventions'
-import LandingPage from './Components/LandingPage'
+import Forms from './Components/Forms'
+import DummyUser from './Components/DummyUser'
 
 function App() {
   return (
     <>
     <Inventions/>
-    <LandingPage/>
+    <Forms/>
+  <DummyUser/>
     </>
   )
 }

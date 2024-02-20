@@ -1,0 +1,93 @@
+[
+    {
+      "InventionIDNumber": "135792",
+      "Title": "Automatic Hair Brusher",
+      "Inventor": "David Wilson",
+      "InventedYear": "2019-03-10",
+      "Users": 200,
+      "QuirkinessLevel": "High",
+      "Username": "davidwilson88"
+    },
+    {
+      "InventionIDNumber": "987654",
+      "Title": "Singing Plant",
+      "Inventor": "Bob Johnson",
+      "InventedYear": "2021-11-30",
+      "Users": 500,
+      "QuirkinessLevel": "High",
+      "Username": "bobjohnson123"
+    },
+    {
+      "InventionIDNumber": "456789",
+      "Title": "Gravity Defying Shoes",
+      "Inventor": "Emily Brown",
+      "InventedYear": "2020-08-20",
+      "Users": 300,
+      "QuirkinessLevel": "Extreme",
+      "Username": "emilybrown74"
+    },
+    {
+      "InventionIDNumber": "654321",
+      "Title": "Fantasy Machine",
+      "Inventor": "Alice Smith",
+      "InventedYear": "2022-05-15",
+      "Users": 750,
+      "QuirkinessLevel": "Moderate",
+      "Username": "alicesmith82"
+    },
+    {
+      "InventionIDNumber": "123456",
+      "Title": "Amazing Invention",
+      "Inventor": "John Doe",
+      "InventedYear": "2023-01-01",
+      "Users": 1000,
+      "QuirkinessLevel": "High",
+      "Username": "johndoe123"
+    },
+    {
+      "InventionIDNumber": "112233",
+      "Title": "Flying Umbrella",
+      "Inventor": "Michael Jackson",
+      "InventedYear": "2017-07-07",
+      "Users": 50,
+      "QuirkinessLevel": "Extreme",
+      "Username": "michaeljackson_king"
+    },
+    {
+      "InventionIDNumber": "334455",
+      "Title": "Bubble Wrap Suit",
+      "Inventor": "Jennifer Smith",
+      "InventedYear": "2016-04-01",
+      "Users": 80,
+      "QuirkinessLevel": "High",
+      "Username": "jennifersmith93"
+    },
+    {
+      "InventionIDNumber": "778899",
+      "Title": "Dancing Shoes",
+      "Inventor": "Emma Johnson",
+      "InventedYear": "2014-06-30",
+      "Users": 150,
+      "QuirkinessLevel": "Low",
+      "Username": "emmajohnson_21"
+    },
+    {
+      "InventionIDNumber": "246813",
+      "Title": "Talking Toaster",
+      "Inventor": "Sarah Lee",
+      "InventedYear": "2018-12-25",
+      "Users": 100,
+      "QuirkinessLevel": "Moderate",
+      "Username": "sarahlee55"
+    },
+    {
+      "InventionIDNumber": "556677",
+      "Title": "Scented Television",
+      "Inventor": "Christopher Brown",
+      "InventedYear": "2015-10-12",
+      "Users": 120,
+      "QuirkinessLevel": "Moderate",
+      "Username": "chrisbrown_88"
+    }
+  ]
+  
