@@ -26,10 +26,6 @@ function DummyUser() {
         </div>
       ))}
     </div>
-    <div>
-      {}
-    </div>
-
   </>
   )
 }
