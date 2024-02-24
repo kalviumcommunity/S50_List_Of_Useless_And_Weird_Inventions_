@@ -18,12 +18,16 @@ router.get("/users", async (req, res) => {
 
 router.post("/users", async (req, res) => {
     try {
-        const data = await userModel.create(req.body);
-        console.log(data)
+        console.log(req.body)
+        const {Username, Nickname, Email, Password} = req.body.data;
+
+        console.log(Username, Nickname, Email, Password)
+        const data = await userModel.create({Username, Nickname, Email, Password});
+        
         res.json(data);
     } catch (error) {
         console.log(error);
-        res.status(500).send("An error occurred");
+        res.status(501).send("An error occurred");
     }   
 });
 
