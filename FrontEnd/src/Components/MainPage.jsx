@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Cookies from 'js-cookie';
 
 function MainPage() {
-  const [users, setUsers] = useState([]);
+const [users, setUsers] = useState([]);
 const Nickname = Cookies.get('Nickname');
 const Email = Cookies.get('Email');
 const userName = Cookies.get("username");

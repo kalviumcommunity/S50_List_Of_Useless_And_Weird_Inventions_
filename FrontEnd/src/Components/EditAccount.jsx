@@ -47,6 +47,7 @@ axios.put("http://localhost:3000/users", {
   nickname: updatedNickname,
   email: updatedEmail,
 })
+
 .then(response => {
   console.log("User information updated successfully:", response.data);
   setEditMode(false);
@@ -111,8 +112,6 @@ axios.put("http://localhost:3000/users", {
             </div>
           </div>
         </div>
-
-      
       </div>
       <div className="h-screen bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] grid justify-center items-center from-gray-700 via-gray-900 to-black">
       <div className="border rounded-lg justify-center ml-80 items-center text-center h-3/5 w-[640px]">
