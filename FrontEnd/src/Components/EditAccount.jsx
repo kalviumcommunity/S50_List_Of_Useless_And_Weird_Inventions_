@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import logo from "./logo.jpeg";
 import DisplayPosts from "./DisplayPosts";
@@ -36,7 +35,7 @@ const handleSubmit = () => {
 };
 
 const logout=()=>{
-  Cookies.remove("Username");
+  Cookies.remove("username");
   Cookies.remove("Nickname");
   Cookies.remove("Email");
   navigate('/main')
@@ -103,7 +102,7 @@ axios.put("http://localhost:3000/users", {
                 <div className=" ml-3">
                 {users && (
                   <>
-                    <p className="text-gray-600 mb-0">{Nickname}</p>
+                    <p className="text-gray-600 mb-0">{userName}</p>
                     <p className="text-gray-600 mb-0">{Email}</p>
                   </>
                 )}

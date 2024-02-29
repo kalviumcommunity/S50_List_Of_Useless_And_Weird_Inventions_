@@ -8,9 +8,9 @@ import Cookies from "js-cookie";
 
 function DisplayPosts() {
   const [posts, setPosts] = useState([]);
-  const Nickname = Cookies.get("Nickname") || ""; 
+  const Nickname = Cookies.get("Nickname") || "";
   const Email = Cookies.get("Email") || "";
-
+  const Username = Cookies.get("username") || "";
 
   useEffect(() => {
     axios
@@ -32,9 +32,11 @@ function DisplayPosts() {
           <button className="mr-5 text-white bg-gray-500 px-3 py-1 rounded-md">
             Contact Us
           </button>
-          <button className="mr-5 text-white bg-gray-500 px-3 py-1 rounded-md">
-            Login
-          </button>
+          <Link to="/login">
+            <button className="mr-5 text-white bg-gray-500 px-3 py-1 rounded-md">
+              Login
+            </button>
+          </Link>
           <Link to="/forms">
             <button className="mr-5 text-white bg-gray-500 px-3 py-1 rounded-md">
               SignUp
@@ -58,32 +60,30 @@ function DisplayPosts() {
               </button>
             </div>
             <Link to="/Account">
-            <div className="bg-gray-400 ml-7 mt-[120%] h-20 w-72 items-center justify-center text-center p-2  rounded-md">
-
-              <div className="flex">
-                <img
-                  className="w-16"
-                  src="https://play-lh.googleusercontent.com/15OKLti0ofnjK4XK1bgRXgsoblPvMi3hCA5z2o9WAcjssFNt2dXxemp2Om9vB3A_jYAe"
-                  alt=""
-                />
+              <div className="bg-gray-400 ml-7 mt-[120%] h-20 w-72 items-center justify-center text-center p-2  rounded-md">
+                <div className="flex">
+                  <img
+                    className="w-16"
+                    src="https://play-lh.googleusercontent.com/15OKLti0ofnjK4XK1bgRXgsoblPvMi3hCA5z2o9WAcjssFNt2dXxemp2Om9vB3A_jYAe"
+                    alt=""
+                  />
                   <div className=" ml-3">
                     <>
                       <div className="flex item-center">
-                        <p className="text-gray-900 ">{Nickname}</p>
+                        <p className="text-gray-900 ">{Username}</p>
                         <button
                           className="text-gray-600 absolute underline ml-[50%]"
                           onClick={() => setEditing(true)}
                         >
-                          <FontAwesomeIcon icon={faEdit} /> 
+                          <FontAwesomeIcon icon={faEdit} />
                         </button>
                       </div>
                       <p className="text-gray-700 mb-0">{Email}</p>
                     </>
                   </div>
+                </div>
               </div>
-            </div>
-            </Link> 
-
+            </Link>
           </div>
         </div>
 
