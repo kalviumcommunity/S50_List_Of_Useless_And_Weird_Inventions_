@@ -11,10 +11,6 @@ function DisplayPosts() {
   const Nickname = Cookies.get("Nickname") || ""; 
   const Email = Cookies.get("Email") || "";
 
-  // const [editMode, setEditMode] = useState(false);
-  // const [updatedTitle, setUpdatedTitle] = useState(posts.Title);
-  // const [updatedInventor, setUpdatedInventor] = useState(posts.Inventor);
-  // const [updatedQuirkinessLeve, setUpdatedQuirkinessLeve] = useState(posts.QuirkinessLevel);
 
   useEffect(() => {
     axios
@@ -61,20 +57,21 @@ function DisplayPosts() {
                 Add Posts
               </button>
             </div>
+            <Link to="/Account">
             <div className="bg-gray-400 ml-7 mt-[120%] h-20 w-72 items-center justify-center text-center p-2  rounded-md">
+
               <div className="flex">
                 <img
                   className="w-16"
                   src="https://play-lh.googleusercontent.com/15OKLti0ofnjK4XK1bgRXgsoblPvMi3hCA5z2o9WAcjssFNt2dXxemp2Om9vB3A_jYAe"
                   alt=""
                 />
-                <Link to="/Account">
                   <div className=" ml-3">
                     <>
-                      <div className="flex justify-between">
+                      <div className="flex item-center">
                         <p className="text-gray-900 ">{Nickname}</p>
                         <button
-                          className="text-gray-600 underline"
+                          className="text-gray-600 absolute underline ml-[50%]"
                           onClick={() => setEditing(true)}
                         >
                           <FontAwesomeIcon icon={faEdit} /> 
@@ -83,9 +80,10 @@ function DisplayPosts() {
                       <p className="text-gray-700 mb-0">{Email}</p>
                     </>
                   </div>
-                </Link>
               </div>
             </div>
+            </Link> 
+
           </div>
         </div>
 
