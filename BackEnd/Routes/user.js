@@ -3,8 +3,16 @@ const router = express.Router();
 const userModel = require('../Schema/UserModel');
 const Joi = require('joi');
 const userSchema = require('./UserSchema'); 
+require('dotenv').config();
 
-//Get request
+const jwt = require('jsonwebtoken');
+
+// Example function to generate JWT token
+const generateToken = (user) => {
+    return jwt.sign({ name: user.Username }, process.env.JWT_SECRET, { expiresIn: '1h' });
+};
+
+// Get request
 router.get("/users", async (req, res) => {
     try {
         const data = await userModel.find();
@@ -15,25 +23,25 @@ router.get("/users", async (req, res) => {
     }
 });
 
-//Post request
+// Post request
 router.post("/users", async (req, res) => {
     try {
-        const { error, value } = userSchema.validate(req.body);
+        const { error} = userSchema.validate(req.body);
         if (error) {
-            return res.status(400).send(error.details[0].message);
+            return res.status(400).send("error in validating",error.details);
         }
 
-        const { Username, Nickname, Email, Password } = value;
-
+        const { Username, Nickname, Email, Password } = req.body;
         const data = await userModel.create({ Username, Nickname, Email, Password });
-        res.json(data);
+        const token = generateToken(data);
+        res.status(201).json({ userData: data, token: token });
     } catch (error) {
         console.log(error);
         res.status(501).send("An error occurred");
     }   
 });
 
-//Put request
+// Put request
 router.put("/users/:id", async (req, res) => {
     try {
         const userId = req.params.id;
@@ -48,7 +56,7 @@ router.put("/users/:id", async (req, res) => {
     }
 });
 
-//Patch request 
+// Patch request 
 router.patch("/users/:id", async (req, res) =>{
     try {
         const userId = req.params.id;
@@ -64,8 +72,8 @@ router.patch("/users/:id", async (req, res) =>{
     }
 });
 
-//Delete request
-router.delete("/users/:id", async (req, res)=>{
+// Delete request
+router.delete("/users/:id", async (req, res) => {
     const id = req.params.id;
     try {
         const deletedUser = await userModel.findByIdAndDelete(id);

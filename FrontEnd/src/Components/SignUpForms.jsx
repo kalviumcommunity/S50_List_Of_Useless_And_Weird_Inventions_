@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cookies from 'js-cookie';
 
-function App() {
+function SignUpForm() {
   const navigate = useNavigate();
   const {
     register,
@@ -13,19 +13,26 @@ function App() {
   } = useForm();
   const [submitting, setSubmitting] = useState(false);
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (formData) => {
     try {
-      setSubmitting(true)
-      const { Username, Nickname, Email, Password } = data
-      console.log(Username)
-      const response = await axios.post("http://localhost:3000/users", { Username, Nickname, Email, Password });
+      console.log(formData.Username);
+      setSubmitting(true);
+      const { Username, Nickname, Email, Password } = formData;
+      const response = await axios.post("http://localhost:3000/users", {
+        Username,
+        Nickname,
+        Email,
+        Password,
+      });
+      const { userData, token } = response.data;
       console.log(response.data);
-      Cookies.set('username', response.data.Username)
-      Cookies.set('Nickname', response.data.Nickname)
-      Cookies.set('Email', response.data.Email)
+      Cookies.set("token", token, { expires: 1 });
+      Cookies.set("username", userData.Username);
+      Cookies.set("Nickname", userData.Nickname);
+      Cookies.set("Email", userData.Email);
       navigate("/main");
     } catch (error) {
-      console.log(error);
+      console.log("error in axios",error);
     }
   };
   
@@ -190,4 +197,4 @@ function App() {
   );
 }
 
-export default App;
+export default SignUpForm;

@@ -1,6 +1,6 @@
 import React from 'react'
 import Inventions from './Components/Inventions'
-import Forms from './Components/Forms'
+import SignUpForm from './Components/SignUpForms'
 import DummyUser from './Components/DummyUser'
 import DummyPosts from './Components/DummyPost'
 import { Routes,Route } from 'react-router-dom'
@@ -13,7 +13,7 @@ function App() {
     <>
     <Routes>
       <Route path='/' element={<Inventions/>}/>
-      <Route path='/forms' element={<Forms/>}/>
+      <Route path='/forms' element={<SignUpForm/>}/>
       <Route path='/main' element={<DisplayPosts/>}/>
       <Route path='/account' element={<Account/>}/>
       <Route path='/login' element={<Login/>}/>
