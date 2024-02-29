@@ -15,14 +15,14 @@ function App() {
 
   const onSubmit = async (data) => {
     try {
-      console.log(data.Username)
       setSubmitting(true)
       const { Username, Nickname, Email, Password } = data
+      console.log(Username)
       const response = await axios.post("http://localhost:3000/users", { Username, Nickname, Email, Password });
       console.log(response.data);
-      Cookies.set('username', data.Username)
-      Cookies.set('Nickname', data.Nickname)
-      Cookies.set('Email', data.Email)
+      Cookies.set('username', response.data.Username)
+      Cookies.set('Nickname', response.data.Nickname)
+      Cookies.set('Email', response.data.Email)
       navigate("/main");
     } catch (error) {
       console.log(error);
