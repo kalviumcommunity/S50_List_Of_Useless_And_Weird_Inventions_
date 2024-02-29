@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import logo from "./logo.jpeg";
 import DisplayPosts from "./DisplayPosts";
@@ -36,7 +35,7 @@ const handleSubmit = () => {
 };
 
 const logout=()=>{
-  Cookies.remove("Username");
+  Cookies.remove("username");
   Cookies.remove("Nickname");
   Cookies.remove("Email");
   navigate('/main')

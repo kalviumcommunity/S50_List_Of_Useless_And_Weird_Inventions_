@@ -15,34 +15,26 @@ function App() {
 
   const onSubmit = async (data) => {
     try {
+      console.log(data.Username)
       setSubmitting(true)
-      const response = await axios.post("http://localhost:3000/users", { data });
+      const { Username, Nickname, Email, Password } = data
+      const response = await axios.post("http://localhost:3000/users", { Username, Nickname, Email, Password });
       console.log(response.data);
-      
-      setSubmitting(true);
       Cookies.set('username', data.Username)
       Cookies.set('Nickname', data.Nickname)
       Cookies.set('Email', data.Email)
-  
-      navigate("/main", { formData: data });
+      navigate("/main");
     } catch (error) {
       console.log(error);
     }
   };
   
-
   return (
     <div className="flex items-center justify-center h-screen bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black shadow-2xl ">
       <div className="item-center justify-center w-full">
         <div className="text-center text-4xl font-bold text-white">CREATE ACCOUNT</div>
         <form
           onSubmit={handleSubmit(onSubmit)}className="max-w-md mx-auto my-4 p-4 border rounded-lg shadow-lg bg-white">
-          {submitting && !Object.keys(errors).length && (
-            <h2 className="text-blue-600 text-2xl font-bold mb-5">
-              Registered Successfully...
-            </h2>
-          )}
-
           <div className="mb-4">
             <label className="block text-sm font-semibold text-gray-600 mb-1">
               Name
