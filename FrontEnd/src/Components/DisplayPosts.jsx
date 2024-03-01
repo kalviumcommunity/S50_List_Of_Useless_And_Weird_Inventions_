@@ -10,9 +10,19 @@ function DisplayPosts() {
   const [posts, setPosts] = useState([]);
   const Nickname = Cookies.get("Nickname") || "";
   const Email = Cookies.get("Email") || "";
-  const Username = Cookies.get("username") || "";
+  const Username = Cookies.get("username") ;
+  const [account, setAccount] = useState(false);
 
+  
   useEffect(() => {
+      if (!Username) {
+        setAccount(false);
+      } else {
+        setAccount(true);
+      }
+
+    console.log(account)
+
     axios
       .get("http://localhost:3000/posts")
       .then((response) => {
@@ -37,11 +47,15 @@ function DisplayPosts() {
               Login
             </button>
           </Link>
-          <Link to="/forms">
-            <button className="mr-5 text-white bg-gray-500 px-3 py-1 rounded-md">
-              SignUp
-            </button>
-          </Link>
+          {!account && (
+            <Link to="/forms">
+              <button
+                className="mr-5 text-white bg-gray-500 px-3 py-1 rounded-md"
+              >
+                SignUp
+              </button>
+            </Link>
+          )}
         </div>
       </nav>
 
@@ -59,6 +73,7 @@ function DisplayPosts() {
                 Add Posts
               </button>
             </div>
+            {account && (
             <Link to="/Account">
               <div className="bg-gray-400 ml-7 mt-[120%] h-20 w-72 items-center justify-center text-center p-2  rounded-md">
                 <div className="flex">
@@ -67,23 +82,23 @@ function DisplayPosts() {
                     src="https://play-lh.googleusercontent.com/15OKLti0ofnjK4XK1bgRXgsoblPvMi3hCA5z2o9WAcjssFNt2dXxemp2Om9vB3A_jYAe"
                     alt=""
                   />
-                  <div className=" ml-3">
-                    <>
+                   
+                    <div className="ml-3">
                       <div className="flex item-center">
-                        <p className="text-gray-900 ">{Username}</p>
+                        <p className="text-gray-900">{Username}</p>
                         <button
                           className="text-gray-600 absolute underline ml-[50%]"
                           onClick={() => setEditing(true)}
                         >
-                          <FontAwesomeIcon icon={faEdit} />
+                          Edit
                         </button>
                       </div>
                       <p className="text-gray-700 mb-0">{Email}</p>
-                    </>
-                  </div>
+                    </div>
                 </div>
               </div>
             </Link>
+                  )}
           </div>
         </div>
 
@@ -96,11 +111,11 @@ function DisplayPosts() {
               <div className="flex flex-col">
                 <h2 className="text-2xl font-bold mb-2">{post.Title}</h2>
                 <p className="text-gray-600 mb-1">Inventor: {post.Inventor}</p>
-                {/* <p className="text-gray-600 mb-1">Users: {post.Users}</p> */}
+                <p className="text-gray-600 mb-1">Users: {post.Users}</p>
                 <p className="text-gray-600 mb-1">
                   Quirkiness Level: {post.QuirkinessLevel}
                 </p>
-                {/* <p className="text-gray-600 mb-1">Username: {post.Username}</p> */}
+                <p className="text-gray-600 mb-1">Username: {post.Username}</p>
               </div>
               <img
                 src={post.ImageURL}
