@@ -8,37 +8,51 @@ import Cookies from "js-cookie";
 
 function DisplayPosts() {
   const [posts, setPosts] = useState([]);
-  const Nickname = Cookies.get("Nickname") || "";
   const Email = Cookies.get("Email") || "";
-  const Username = Cookies.get("username") ;
+  const Username = Cookies.get("username");
   const [account, setAccount] = useState(false);
+  const [selectedUser, setSelectedUser] = useState("");
+  const [filteredPosts, setFilteredPosts] = useState([]);
 
-  
   useEffect(() => {
-      if (!Username) {
-        setAccount(false);
-      } else {
-        setAccount(true);
-      }
-
-    console.log(account)
+    if (Username) {
+      setAccount(true);
+    } else {
+      setAccount(false);
+    }
 
     axios
       .get("http://localhost:3000/posts")
       .then((response) => {
         setPosts(response.data);
+        setFilteredPosts(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [Username]);
+
+  const handleChange = (event) => {
+    setSelectedUser(event.target.value);
+  };
+
+  useEffect(() => {
+    if (selectedUser) {
+      const filteredData = posts.filter(
+        (post) => post.Username === selectedUser
+      );
+      setFilteredPosts(filteredData);
+    } else {
+      setFilteredPosts(posts);
+    }
+  }, [selectedUser, posts]);
 
   return (
-    <div className="body flex flex-col h-screen bg-gray-200 ">
+    <div className="body flex flex-col h-screen bg-gray-200">
       <nav className="shadow-lg w-full flex justify-between items-center bg-black px-6 z-10">
         <img src={logo} alt="" />
 
-        <div className="flex ">
+        <div className="flex">
           <button className="mr-5 text-white bg-gray-500 px-3 py-1 rounded-md">
             Contact Us
           </button>
@@ -47,22 +61,18 @@ function DisplayPosts() {
               Login
             </button>
           </Link>
-          {!account && (
-            <Link to="/forms">
-              <button
-                className="mr-5 text-white bg-gray-500 px-3 py-1 rounded-md"
-              >
-                SignUp
-              </button>
-            </Link>
-          )}
+          <Link to="/forms">
+            <button className="mr-5 text-white bg-gray-500 px-3 py-1 rounded-md">
+              SignUp
+            </button>
+          </Link>
         </div>
       </nav>
 
       <div className="flex flex-1 overflow-y-scroll">
         <div className="bg-black w-80 h-full shadow-lg fixed">
           <div className="text-white">
-            <div className=" flex-col  flex mt-10 items-center justify-between ">
+            <div className="flex-col  flex mt-10 items-center justify-between ">
               <button className="text-black font-semibold mt-5 bg-gray-100 w-56 py-2 text-xl hover:italic rounded-md">
                 Home
               </button>
@@ -73,16 +83,16 @@ function DisplayPosts() {
                 Add Posts
               </button>
             </div>
-            {account && (
-            <Link to="/Account">
-              <div className="bg-gray-400 ml-7 mt-[120%] h-20 w-72 items-center justify-center text-center p-2  rounded-md">
-                <div className="flex">
-                  <img
-                    className="w-16"
-                    src="https://play-lh.googleusercontent.com/15OKLti0ofnjK4XK1bgRXgsoblPvMi3hCA5z2o9WAcjssFNt2dXxemp2Om9vB3A_jYAe"
-                    alt=""
-                  />
-                   
+            {!account && (
+              <Link to="/Account">
+                <div className="bg-gray-400 ml-7 mt-[120%] h-20 w-72 items-center justify-center text-center p-2  rounded-md">
+                  <div className="flex">
+                    <img
+                      className="w-16"
+                      src="https://play-lh.googleusercontent.com/15OKLti0ofnjK4XK1bgRXgsoblPvMi3hCA5z2o9WAcjssFNt2dXxemp2Om9vB3A_jYAe"
+                      alt=""
+                    />
+
                     <div className="ml-3">
                       <div className="flex item-center">
                         <p className="text-gray-900">{Username}</p>
@@ -95,15 +105,27 @@ function DisplayPosts() {
                       </div>
                       <p className="text-gray-700 mb-0">{Email}</p>
                     </div>
+                  </div>
                 </div>
-              </div>
-            </Link>
-                  )}
+              </Link>
+            )}
           </div>
         </div>
 
         <div className="ml-80 p-6 flex-1">
-          {posts.map((post, index) => (
+          <select
+            className="mb-5"
+            onChange={handleChange}
+            value={selectedUser}
+          >
+            <option value="">All Users</option>
+            {posts.map((post) => (
+              <option key={post.Username} value={post.Username}>
+                {post.Username}
+              </option>
+            ))}
+          </select>
+          {filteredPosts.map((post, index) => (
             <div
               key={index}
               className="bg-white rounded-lg shadow-md p-7 mb-7 flex items-center justify-between"
