@@ -152,7 +152,7 @@ axios.put("http://localhost:3000/users", {
           </button>
         )}
         { editMode &&(
-        <button className="text-black rounded-full font-semibold bg-gray-100 px-10 ml-10 mt-10 py-2 text-2xl"
+        <button className="text-white rounded-md font-semibold bg-gray-100 px-3 ml-10 mt-10 py-2 text-xl bg-orange-500"
         onClick={logout}
         >LOG OUT</button>
         
