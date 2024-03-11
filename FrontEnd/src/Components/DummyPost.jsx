@@ -6,7 +6,7 @@ function DummyPosts() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/posts')
+    axios.get('https://s50-list-of-useless-and-weird-inventions-rbpk.onrender.com/posts')
       .then((response) => {
         setPosts(response.data);
       })

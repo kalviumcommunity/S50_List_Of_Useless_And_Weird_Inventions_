@@ -22,7 +22,7 @@ function DisplayPosts() {
     }
 
     axios
-      .get("http://localhost:3000/posts")
+      .get("https://s50-list-of-useless-and-weird-inventions-rbpk.onrender.com/posts")
       .then((response) => {
         setPosts(response.data);
         setFilteredPosts(response.data);

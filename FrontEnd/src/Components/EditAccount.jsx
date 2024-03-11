@@ -41,7 +41,7 @@ const logout=()=>{
   navigate('/main')
 }
 
-axios.put("http://localhost:3000/users", {
+axios.put("https://s50-list-of-useless-and-weird-inventions-rbpk.onrender.com/users", {
   username: updatedUserName,
   nickname: updatedNickname,
   email: updatedEmail,

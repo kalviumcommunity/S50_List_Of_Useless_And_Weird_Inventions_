@@ -18,7 +18,7 @@ function SignUpForm() {
       console.log(formData.Username);
       setSubmitting(true);
       const { Username, Nickname, Email, Password } = formData;
-      const response = await axios.post("http://localhost:3000/users", {
+      const response = await axios.post("https://s50-list-of-useless-and-weird-inventions-rbpk.onrender.com/users", {
         Username,
         Nickname,
         Email,

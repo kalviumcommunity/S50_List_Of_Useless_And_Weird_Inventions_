@@ -20,7 +20,7 @@ function Login() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/users")
+      .get("https://s50-list-of-useless-and-weird-inventions-rbpk.onrender.com/users")
       .then((res) => {
         setUserData(res.data);
       })

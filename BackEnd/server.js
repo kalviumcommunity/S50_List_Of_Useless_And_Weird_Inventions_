@@ -16,12 +16,6 @@ app.get('/ping', (req, res) => {
 
 app.use(express.json());
 
-// app.use(cors({
-//     origin: 'http://localhost:3000/users', 
-//     methods: 'GET,POST',          
-//     allowedHeaders: 'Content-Type', 
-//   }));
-
 app.use("/", userroute);
 app.use("/", postroute);
 
