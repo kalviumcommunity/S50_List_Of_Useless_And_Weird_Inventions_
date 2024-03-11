@@ -83,7 +83,7 @@ function DisplayPosts() {
                 Add Posts
               </button>
             </div>
-            {!account && (
+            {account && (
               <Link to="/Account">
                 <div className="bg-gray-400 ml-7 mt-[120%] h-20 w-72 items-center justify-center text-center p-2  rounded-md">
                   <div className="flex">
